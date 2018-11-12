@@ -2,7 +2,7 @@
 
 from flectra import models, fields, api
 
-class Satuan(models.Model):
-    _name = 'inventaris.satuan'
+class SumberDana(models.Model):
+    _name = 'inventaris.sumber.dana'
     
     name = fields.Char('Name', required=True) 
