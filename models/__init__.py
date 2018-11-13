@@ -10,3 +10,4 @@ from . import color
 from . import sumber_dana
 from . import wizard_asset_move
 from . import setting
+from . import wizard_scrap

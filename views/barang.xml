@@ -17,6 +17,7 @@
 					<field name="lokasi_id" />
 					<field name="sumber_id" />
 					<field name="partner_id" />
+					<field name="kondisi" />
 					<field name="cost" sum="Total Price" string="Price" />
 				</tree>
 			</field>
@@ -46,6 +47,14 @@
 							context="{'group_by':'brand_id'}" />
 						<filter name="lokasi_id" string="Lokasi" domain="[]"
 							context="{'group_by':'lokasi_id'}" />
+						<filter name="vendor_id" string="Vendor" domain="[]"
+							context="{'group_by':'partner_id'}" />
+						<filter name="kondisi" string="Kondisi" domain="[]"
+							context="{'group_by':'kondisi'}" />
+							<filter name="sumber_id" string="Sumber Dana" domain="[]"
+							context="{'group_by':'sumber_id'}" />
+							<filter name="purchase_number" string="Purchase Number" domain="[]"
+							context="{'group_by':'purchase_number'}" />
 					</group>
 				</search>
 			</field>
@@ -62,6 +71,12 @@
 			<field name="model">inventaris.barang</field>
 			<field name="arch" type="xml">
 				<form duplicate="0" string="Barang" class="o_sale_order">
+					<header>
+						<button class="btn btn-danger" type="object"
+							name="action_scrap" string="Scrap"
+							attrs="{'invisible': [ ('kondisi', '=', 'rusak')]}"
+							confirm="Are you sure ?" />
+					</header>
 					<sheet>
 						<div class="oe_title">
 							<strong>
@@ -91,6 +106,7 @@
 										<field name="lebar" />
 										<field name="tinggi" />
 										<field name="volume" />
+										<field name="kondisi" readonly="1" />
 										<field name="qty" invisible="1" />
 										<!-- <label for="nilai_penyusutan" string="Penyusutan" /> <div 
 											class="o_address_format"> <field name="nilai_penyusutan" placeholder="Nilai 

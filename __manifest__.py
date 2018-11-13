@@ -36,6 +36,7 @@
         'views/vendor.xml',
         'views/sumber_dana.xml',
         'views/wizard_asset_move.xml',
+        'views/wizard_scrap.xml',
         'views/setting.xml',
         'views/menu.xml',
     ],

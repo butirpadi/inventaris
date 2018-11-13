@@ -33,6 +33,11 @@ class Barang(models.Model):
     qty = fields.Integer('Quantity', default=1) 
     kondisi = fields.Selection([('normal', 'Normal'), ('rusak', 'Rusak')], string='Kondisi', required=True, default='normal')
     sumber_id = fields.Many2one('inventaris.sumber.dana')
+    scrap_date = fields.Datetime('Scrap Date')
+    
+    def action_scrap(self):
+        self.kondisi = 'rusak'
+        print('Scrap this asset')
     
     @api.onchange('tanggal_pengadaan')
     def tanggal_pengadaan_onchange(self):
